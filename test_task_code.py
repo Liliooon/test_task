@@ -1,3 +1,4 @@
+import csv
 import json
 import re
 from string import punctuation
@@ -48,8 +49,9 @@ def main():
     words_list = get_words_list(text)
     freq_dict = get_freq_dict(words_list)
     with open('freq_dict.csv', 'w', encoding='utf-8') as fw:
-        for word, freq in freq_dict:
-            fw.write(f'{word},{freq}\n')
+        writer = csv.writer(fw)
+        for word_freq in freq_dict:
+            writer.writerow(word_freq)
     lemmatized_text = get_lemmatized_text(words_list)
     o_lemmas = [word for word in lemmatized_text if word.count('о') == 2]
     with open('o_lemmas.txt', 'w', encoding='utf-8') as fw:
