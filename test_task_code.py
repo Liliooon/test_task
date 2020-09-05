@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import pymorphy2
 import requests
 
-PUNCT = punctuation + '«»–“”—'
+PUNCT = punctuation + '«»–“”—…'
 MORPH = pymorphy2.MorphAnalyzer()
 
 
